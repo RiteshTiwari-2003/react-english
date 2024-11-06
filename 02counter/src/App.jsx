@@ -62,4 +62,13 @@ but if we use callback function then this problem is solved like setCounter((pre
   purpose: rerendering create a new virtual dom,while reconciliation is about comparing the old and new virtual dom to update real dom minimally.
   frequency: rerendering happen whenever state or props changesreconciliation onllyoccur if there is difference between the old and new virtual dom.
 
+  what is fiber?
+  we are about to discuss about the heart of the react fiber archtecture, fiber are much lower level absraction than application developer typically think about ,the primary goal of the fiber is to enable react to take advantage of sheduling ,
+  specificly we need to be able to
+  pause work and comeback to it later,
+  assign priority to different type of work
+  reuse priviously completed work
+  abort work if it is no longer work
+in order to do any of this, we first need a way to break work down into unit, in one sence, that's what a fiber is,a fiber represent a unit of work
+
  */
