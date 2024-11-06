@@ -52,5 +52,14 @@ but if we use callback function then this problem is solved like setCounter((pre
   during reconciliation:
   react compare the virtual dom trees and identify the minimum number of chang required.
   react only update the part of the real dom that have changed , making update more efficient.
-  
+  rerendering :
+  rerendering occurs when a component's state and props changes,and it cause react to invoke the Component's render() function(or the function componet itself)
+  this rerender:
+  create new virtual dom representation of the component's ui.
+  update any child componentas well.
+  however the re rendering does not means the dom will actually changes, after generating the new virtual dom,react move to reconciliation to determine if any real dom update are  necessary
+  key difference
+  purpose: rerendering create a new virtual dom,while reconciliation is about comparing the old and new virtual dom to update real dom minimally.
+  frequency: rerendering happen whenever state or props changesreconciliation onllyoccur if there is difference between the old and new virtual dom.
+
  */
