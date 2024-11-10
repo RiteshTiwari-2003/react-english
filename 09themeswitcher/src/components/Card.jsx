@@ -74,4 +74,4 @@ export default function Card() {
             </div>
         </div>
     );
-}
+}//this context api and redux these are the just state manager and they are just allow you to perform some taskin a certain way, it does not really care what are you performing and how you are performing, it's just allow you to give a streamlined part that this is only how things should go and come back
