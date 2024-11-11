@@ -100,3 +100,75 @@ debugging : redux offer powerful dev tools for debugging and tracking state chan
 
 in sumurry: context api use for smaller app or simple global state like user setting and theme
 use redux for larger application where you need more structure , control over asynchronous state change and debugging capabilities
+
+# functional component and class component :
+
+in react, component are building blocks for creating the user interface,components can be written as class based component and and functional based component ,
+while both serve the same purpose they have different syntax and characterstics , espacially since functional component gained more capabilities with the introduction of hooks in react
+
+# 1. class based component :
+
+class based component are es6 javascript classes that extends React.component, they come with lifecycle method , making them well suited for handling complex logic , managing state and performing side effect
+
+import React,{Component} from "react"
+class MyClassComponent extends Component{
+//initiallizing state
+state={count:0};
+//lifecycle meythod: callled after the component mount
+componentDidMount(){
+console.log("component mounted");
+}
+//event handler to update state
+increment=()=>{
+this.setState({count:this.state.count+1});
+};
+//render method to output jsx
+render(){
+return (
+
+<div>
+<h1>class component</h1>
+<p>count:{this.state.count}</p>
+<button onClick={this.increment}>increment</button></div>
+);
+}
+}
+key feature of class component:
+# 1.state management: class component use this.state to store component specific state.
+this.setState() updates the state and triggers a re render of the component
+# 2. lifecycle method: class component have lifecycle methods (componentDidMount,componentDidUpdate,componentWillUnmount) for controlling behavior of different staages
+useful for managing side effect like fetching data and adding event listner
+
+# 3.this binding: method in class component often required this to refer to the component instanse
+
+# 2. functional component:
+
+functional component are simpler function that return jsx initially, they were stateless and relied on props for data,, however with the introduction of react hooks,
+functional component can now manage state and use lifecycle:like method making them equaly power as class component.
+import React,{useState,useEffect} from "react"
+const MyFunctionalComponent=()=>{
+//initialize state using useState hook
+const[count,setCount]=useState(0);
+//using useEffect method as a lifecycle replacement
+useEffect(()=>{
+console.log("component mounted");
+//cleanup function to run on component Unmount
+return ()=>{
+console.log("component unmounted")
+}
+
+    },[]);
+
+//event handler to updte state
+const increment=()=>{
+setCount(count+1);
+}
+return (
+
+<div>
+<h1>Functional component</h1>
+<p>Count:{count}</p>
+<button onClick={increment}>Increment</button></div>
+)
+}
+export default MyFunctionalComponent
