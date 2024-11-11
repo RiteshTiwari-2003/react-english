@@ -22,7 +22,7 @@ function App() {
     const todos=JSON.parse(localStorage.getItem("todos"))
     if(todos && todos.length>0){
       setTodos(todos)
-    }
+    }// the importent part is that we use two useeffect in these in one useeffect we dont use any dependencyso we can not run again this useeffectmethod but in another useeffect weuse a dependency so we run again and again this method whenever dependency variable change
   },[])
   useEffect(()=>{
     localStorage.setItem("todos",JSON.stringyfy(todos))
